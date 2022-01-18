@@ -1,0 +1,1 @@
+web: gunicorn ni_project.wsgi
