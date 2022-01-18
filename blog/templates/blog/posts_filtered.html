@@ -1,0 +1,9 @@
+{% extends 'blog/home.html' %}
+
+{% block filtered %}
+    {% if author %}
+        <h1 class="mb-3">Autor: {{ author }}</h1>
+    {% elif category %}
+        <h1 class="mb-3">Kategoria: {{ category }}</h1>
+    {% endif %}
+{% endblock filtered %}

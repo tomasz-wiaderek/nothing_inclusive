@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+    <article class="media content-section">
+      <div class="media-body">
+        <div class="article-metadata">
+          <a class="mr-2" href="{% url 'blog:post-detail' object.post.pk ">{{ object.post }}</a>
+          <small class="text-muted">{{ object.date|date:'F d, Y' }}</small>
+          <small class="text-muted">{{ object.owner }}</small>
+            <div>
+                {% if object.owner == user %}
+                    <a class='btn btn-secondary btn-sm mt-1 mb-1' href="{% url 'blog:image-update' object.slug %}">Edytuj</a>
+                    <a class='btn btn-danger btn-sm mt-1 mb-1' href="{% url 'blog:image-delete' object.slug %}">Usuń</a>
+                {% endif %}
+            </div>
+        </div>
+        <h2 class="article-title">{{ object.name }}</h2>
+        <img src="{{ object.image.url }}" height='500' width='700'>
+      </div>
+    </article>
+
+{% endblock content %}
