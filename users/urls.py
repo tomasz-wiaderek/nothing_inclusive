@@ -4,4 +4,5 @@ from . import views
 app_name = 'users'
 urlpatterns = [
     path('profile/', views.update_user_and_profile, name='profile'),
+    path('register/', views.register, name='register'),
 ]
