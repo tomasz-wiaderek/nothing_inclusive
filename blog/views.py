@@ -19,7 +19,7 @@ def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
 
 
-def list_authors_posts(request, pk):
+def list_posts_by_author(request, pk):
     user = get_object_or_404(User, pk=pk)
     posts = Post.objects.filter(author=user).order_by('-date')
     paginator = Paginator(posts, 5)
@@ -32,7 +32,7 @@ def list_authors_posts(request, pk):
     return render(request, 'blog/posts_filtered.html', context=context)
 
 
-def list_categorys_posts(request, name):
+def list_posts_by_category(request, name):
     category = get_object_or_404(Category, name=name)
     posts = Post.objects.filter(category=category).order_by('-date')
     paginator = Paginator(posts, 5)
@@ -92,7 +92,7 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 class ImageCreateView(LoginRequiredMixin, CreateView):
     model = Image
-    fields = ['name', 'slug', 'image', 'is_header', 'post']
+    fields = ['name', 'image', 'is_header', 'post']
 
     def form_valid(self, form):
         form.instance.owner = self.request.user
