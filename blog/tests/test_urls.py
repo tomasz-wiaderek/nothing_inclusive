@@ -6,7 +6,7 @@ from blog import views
 class TestBlogUrls(SimpleTestCase):
 
     def test_home_url_runs_correct_view(self):
-        url = '/home/'
+        url = '/'
         view_func = resolve(url).func
         self.assertEqual(view_func, views.home)
 

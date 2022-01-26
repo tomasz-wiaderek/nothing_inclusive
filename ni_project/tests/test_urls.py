@@ -64,6 +64,3 @@ class TestUrls(SimpleTestCase):
         url = reverse('password_reset_complete')
         view_func = resolve(url).func.view_class
         self.assertEqual(view_func, auth_views.PasswordResetCompleteView)
-
-
-
