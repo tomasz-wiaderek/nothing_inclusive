@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.paginator import Paginator
+
+from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView
 from django.contrib.auth.models import User
 from .models import Post, Category, Image
 
@@ -45,15 +46,6 @@ def list_posts_by_category(request, name):
     return render(request, 'blog/posts_filtered.html', context=context)
 
 
-class PostCreateView(LoginRequiredMixin, CreateView):
-    model = Post
-    fields = ['title', 'intro', 'content', 'category']
-
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
-
-
 def post_detail_view(request, pk):
     post = Post.objects.get(pk=pk)
     images = Image.objects.filter(post=post)
@@ -62,6 +54,15 @@ def post_detail_view(request, pk):
         'images': images
     }
     return render(request, template_name='blog/post_detail.html', context=context)
+
+
+class PostCreateView(LoginRequiredMixin, CreateView):
+    model = Post
+    fields = ['title', 'intro', 'content', 'category']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
