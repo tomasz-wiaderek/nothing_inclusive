@@ -4,7 +4,9 @@ services:
 
   web-dev:
     container_name: web-dev-cont
-    build: ./app
+    build:
+      context: ./app
+      dockerfile: Dockerfile.dev
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - ./app/:/usr/src/app/

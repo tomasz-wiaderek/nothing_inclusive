@@ -15,4 +15,3 @@ class TestViews(TestCase):
         self.username = secrets.token_hex(4)
         self.email = f'{self.username}@mail.com'
         self.password = secrets.token_hex(4)
-

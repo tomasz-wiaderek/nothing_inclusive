@@ -4,7 +4,9 @@ services:
 
   web:
     container_name: web-cont
-    build: ./app
+    build:
+      context: ./app
+      dockerfile: Dockerfile.prod
     command: gunicorn ni_project.wsgi:application --bind 0.0.0.0:8000
     ports:
       - 8000:8000
