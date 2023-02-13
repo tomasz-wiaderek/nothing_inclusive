@@ -9,14 +9,13 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-import django_heroku
+
 import os
 from pathlib import Path
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 import django.core.mail.backends.smtp
-import storages.backends.s3boto3
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,12 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('NI_SECRET_KEY')
+SECRET_KEY = 'a0d5c308a49c88a6d33b429079b3a0ff01c1edf633d09810'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (os.environ.get('DEBUG_VALUE') == 'True')
 
-ALLOWED_HOSTS = ['nothinginclusive.herokuapp.com']
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -44,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'storages',
 ]
 
 MIDDLEWARE = [
@@ -139,14 +137,3 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('NI_EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('NI_EMAIL_PASS')
-
-# Files storage
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACT = None
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_S3_REGION_NAME = 'eu-central-1'
-
-django_heroku.settings(locals())
