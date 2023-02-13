@@ -30,8 +30,7 @@ DEBUG = int(os.environ.get('DEBUG', default=0))
 # 'DJANGO_ALLOWED_HOSTS' should be a single string of hosts with a space between each.
 # For example: 'DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]'
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
-CSRF_TRUSTED_ORIGINS = ['http://localhost:1337', 'http://127.0.0.1' 'http://[::1]' 'http://0.0.0.0']
-
+CSRF_TRUSTED_ORIGINS = ['http://localhost:1337', 'https://nothing-inclusive.pl', 'http://nothing-inclusive.pl', 'http://127.0.0.1' 'http://[::1]' 'http://0.0.0.0']
 
 # Application definition
 INSTALLED_APPS = [
@@ -140,5 +139,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get('NI_EMAIL_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('NI_EMAIL_PASS')
+EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')

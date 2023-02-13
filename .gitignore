@@ -4,7 +4,7 @@
 .env.prod.proxy-companion
 .env.staging
 .env.staging.proxy-companion
-
+ni_keypair.pem
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,django,pycharm
