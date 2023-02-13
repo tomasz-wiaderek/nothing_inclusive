@@ -1,6 +1,0 @@
-heroku
-
-heroku login
-heroku create <new app name>
-heroku open - opens app in current location
-git push heroku master
