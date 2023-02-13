@@ -1,6 +1,9 @@
 
 .env.prod
 .env.prod.db
+.env.prod.proxy-companion
+.env.staging
+.env.staging.proxy-companion
 
 
 
