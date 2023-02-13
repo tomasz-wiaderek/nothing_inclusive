@@ -1,12 +1,13 @@
 # nothing_inclusive
 It is a web app that is used to manage web blog page.
 
-Build using Django, HTML, CSS. 
+Developed using Django, HTML, CSS.
+Deployed on AWS using docker, docker-compose.
 
 
-It can be accessed under: 
+It can be accessed under:
 ```https://nothing-inclusive.pl```
-```https://nothinginclusive.herokuapp.com```
+
 
 ###Functionalities
 User registration, login/logout, password reset via email.
@@ -18,5 +19,3 @@ Post: add, edit, delete, display.
 View posts: by author, by cathegory, chronologically.
 
 Image: add, edit, delete, display.
-
-
