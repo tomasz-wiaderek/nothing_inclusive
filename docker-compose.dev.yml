@@ -2,7 +2,8 @@ version: '3.8'
 
 services:
 
-  web:
+  web-dev:
+    container_name: web-dev-cont
     build: ./app
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
@@ -12,16 +13,17 @@ services:
     env_file:
       - ./.env.dev
     depends_on:
-      - db
+      - db-dev
 
-  db:
+  db-dev:
+    container_name: db-dev-cont
     image: postgres:13.0-alpine
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - postgres_data_dev:/var/lib/postgresql/data/
     environment:
       - POSTGRES_USER=ni_postgres_user
       - POSTGRES_PASSWORD=hello_django
       - POSTGRES_DB=ni_dev_db
 
 volumes:
-  postgres_data:
+  postgres_data_dev:
