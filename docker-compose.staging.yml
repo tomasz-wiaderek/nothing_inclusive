@@ -3,11 +3,11 @@ version: '3.8'
 services:
 
   web:
-    container_name: web-cont
+    container_name: web
     build:
       context: ./app
       dockerfile: Dockerfile.prod
-    image: 232102669177.dkr.ecr.eu-central-1.amazonaws.com/ni-repo-ec2:web
+    image: 054372962176.dkr.ecr.eu-central-1.amazonaws.com/thblog:web
     command: gunicorn ni_project.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - static_volume:/home/app/web/staticfiles
@@ -20,7 +20,7 @@ services:
   nginx-proxy:
     container_name: nginx-proxy
     build: nginx
-    image: 232102669177.dkr.ecr.eu-central-1.amazonaws.com/ni-repo-ec2:nginx-proxy
+    image: 054372962176.dkr.ecr.eu-central-1.amazonaws.com/thblog:nginx-proxy
     restart: always
     ports:
       - 443:443
@@ -36,6 +36,7 @@ services:
       - web
 
   nginx-proxy-letsencrypt:
+    container_name: nginx-proxy-letsencrypt
     image: jrcs/letsencrypt-nginx-proxy-companion
     env_file:
       - ./.env.staging.proxy-companion

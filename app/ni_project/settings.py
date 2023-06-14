@@ -30,7 +30,7 @@ DEBUG = int(os.environ.get('DEBUG', default=0))
 # 'DJANGO_ALLOWED_HOSTS' should be a single string of hosts with a space between each.
 # For example: 'DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]'
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
-CSRF_TRUSTED_ORIGINS = ['http://localhost:1337', 'https://nothing-inclusive.pl', 'http://nothing-inclusive.pl', 'http://127.0.0.1' 'http://[::1]' 'http://0.0.0.0']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:1337', 'https://thblog.work.gd', 'http://thblog.work.gd', 'http://127.0.0.1' 'http://[::1]' 'http://0.0.0.0']
 
 # Application definition
 INSTALLED_APPS = [
