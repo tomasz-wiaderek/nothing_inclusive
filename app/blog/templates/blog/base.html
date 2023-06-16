@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="{% static 'blog/main.css' %}" type="text/css">
 
     {% if title %}
-        <title>Nothing inclusive - {{ title }}</title>
+        <title>thBlog - {{ title }}</title>
     {% else %}
-        <title>Nothing inclusive</title>
+        <title>thBlog</title>
     {% endif %}
 
 </head>
@@ -24,22 +24,22 @@
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
-          <a class="navbar-brand mr-4" href=" {% url 'blog:home' %} ">NOTHING-inclusive</a>
+          <a class="navbar-brand mr-4" href=" {% url 'blog:home' %} ">thBlog</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
               <a class="nav-item nav-link" href=" {% url 'blog:home' %} ">Home</a>
-              <a class="nav-item nav-link" href=" {% url 'blog:about' %} ">O nas</a>
+              <a class="nav-item nav-link" href=" {% url 'blog:about' %} ">About</a>
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
                 {% if user.is_authenticated %}
-                    <a class="nav-item nav-link" href=" {% url 'blog:post-create' %} ">Nowy post</a>
-                    <a class="nav-item nav-link" href=" {% url 'blog:image-list' %} ">Obrazy</a>
-                    <a class="nav-item nav-link" href=" {% url 'users:profile' %} ">Twój profil</a>
-                    <a class="nav-item nav-link" href=" {% url 'logout' %} ">Wyloguj</a>
+                    <a class="nav-item nav-link" href=" {% url 'blog:post-create' %} ">New post</a>
+                    <a class="nav-item nav-link" href=" {% url 'blog:image-list' %} ">Images</a>
+                    <a class="nav-item nav-link" href=" {% url 'users:profile' %} ">Profile</a>
+                    <a class="nav-item nav-link" href=" {% url 'logout' %} ">Logout</a>
                 {% endif %}
             </div>
           </div>
@@ -62,12 +62,12 @@
 
             <div class="col-md-4">
                 <div class="content-section">
-                    <h3>Kategorie:</h3>
+                    <h3>Categories:</h3>
                         <ul class="list-group">
-                            <li class="list-group-item list-group-item-light"><a href="{% url 'blog:posts-by-category' name='Podróże' %}">Podróże</a></li>
-                            <li class="list-group-item list-group-item-light"><a href="{% url 'blog:posts-by-category' name='Jedzenie'  %}">Jedzenie</a></li>
-                            <li class="list-group-item list-group-item-light"><a href="{% url 'blog:posts-by-category' name='Programowanie'  %}">Programowanie</a></li>
-                            <li class="list-group-item list-group-item-light"><a href="{% url 'blog:posts-by-category' name='Piękne wnętrza' %}">Piękne wnętrza</a></li>
+                            <li class="list-group-item list-group-item-light"><a href="{% url 'blog:posts-by-category' name='Travel' %}">Travel</a></li>
+                            <li class="list-group-item list-group-item-light"><a href="{% url 'blog:posts-by-category' name='Food' %}">Food</a></li>
+                            <li class="list-group-item list-group-item-light"><a href="{% url 'blog:posts-by-category' name='Coding' %}">Coding</a></li>
+                            <li class="list-group-item list-group-item-light"><a href="{% url 'blog:posts-by-category' name='Interior design' %}">Interior design</a></li>
                         </ul>
                     </p>
                 </div>

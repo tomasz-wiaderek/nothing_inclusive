@@ -6,20 +6,20 @@
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Logowanie</legend>
+                <legend class="border-bottom mb-4">Login</legend>
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Zaloguj</button>
+                <button class="btn btn-outline-info" type="submit">Login</button>
                 <small class="text-muted ml-2">
-                    <a href="{% url 'password_reset' %}">Reset hasła</a>
+                    <a href="{% url 'password_reset' %}">Reset password</a>
                 </small>
             </div>
         </form>
         <div class="border-top pt-3">
             <small class="text-muted">
-                Nie masz jeszcze konta?
-                <a class="ml-2" href="{% url 'users:register' %}">Zarejestruj</a>
+                Are you new here?
+                <a class="ml-2" href="{% url 'users:register' %}">Register</a>
             </small>
         </div>
     </div>

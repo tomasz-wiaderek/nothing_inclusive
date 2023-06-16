@@ -13,12 +13,12 @@
       <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Twój profil</legend>
+                <legend class="border-bottom mb-4">Your profile</legend>
                 {{ user_form|crispy }}
                 {{ profile_form|crispy }}
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Edytuj</button>
+                <button class="btn btn-outline-info" type="submit">Edit</button>
             </div>
       </form>
     </div>
