@@ -5,6 +5,7 @@
 .env.staging
 .env.staging.proxy-companion
 *.pem
+notes.odt
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,django,pycharm
