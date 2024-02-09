@@ -5,10 +5,6 @@ Developed using Django, HTML, CSS.
 Deployed on AWS using docker, docker-compose.
 
 
-It can be accessed under:
-```https://nothing-inclusive.pl```
-
-
 ###Functionalities
 User registration, login/logout, password reset via email.
 
